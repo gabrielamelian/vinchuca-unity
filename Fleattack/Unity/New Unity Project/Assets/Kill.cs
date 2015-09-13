@@ -3,16 +3,28 @@ using System.Collections;
 
 public class Kill : MonoBehaviour {
 
+	private GameObject Main;
+	private Spawner spawner;
+
+	void Start () {
+		Main = GameObject.FindGameObjectWithTag ("Main");
+		spawner = Main.GetComponent<Spawner>();
+	}
+
 	void OnMouseDown() {
-		Destroy(gameObject);
+		KillFlea ();
 	}
 
 	void Update()
-	{
+	{			
 		if (gameObject.transform.position.y < -1f) {
-			//print(gameObject.transform.position.y);
-			Destroy(gameObject);
+			KillFlea();
 		}
 	}
 
+	void KillFlea() {
+		Destroy(gameObject);
+		spawner.FleaCounter--;
+	}
+	
 }

@@ -16,4 +16,5 @@ public class Jump : MonoBehaviour {
 		rb.AddForce (new Vector3 (impulseX, impulseY), ForceMode.Impulse);
 		rb.AddTorque (torqueX, torqueY, 0);
 	}
+
 }
