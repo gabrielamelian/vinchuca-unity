@@ -5,10 +5,11 @@ public class Jump : MonoBehaviour {
 
 	private Rigidbody rb;
 
-	private float impulseX = Random.Range(-3f, 3f);
-	private float impulseY = Random.Range(5f, 10f);
+
 
 	void Start () {
+		float impulseX = Random.Range(-3f, 3f);
+		float impulseY = Random.Range(5f, 10f);
 		float torqueX = Random.Range(-200f, 200f);
 		float torqueY = Random.Range(-200f, 200f);
 	
