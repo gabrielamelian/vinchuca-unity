@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Jump.cs" />
      <Compile Include="Assets\Kill.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
      <Compile Include="Assets\Spawner.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
