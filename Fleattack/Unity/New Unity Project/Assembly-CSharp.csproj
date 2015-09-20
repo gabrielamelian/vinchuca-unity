@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\Level\CatHealth.cs" />
      <Compile Include="Assets\Scripts\Level\Jump.cs" />
      <Compile Include="Assets\Scripts\Level\Kill.cs" />
      <Compile Include="Assets\Scripts\Level\Spawner.cs" />
