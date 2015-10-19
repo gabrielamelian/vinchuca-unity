@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Kill : MonoBehaviour {
-
+	
 	public int ScoreValue;
 	public int FleaDamage;
 
@@ -12,12 +12,17 @@ public class Kill : MonoBehaviour {
 	private ScoreManager scoreManager;
 	private CatHealth catHealth;
 
+	public AudioClip smashSound;
+	private AudioSource source;
+
 	void Start () {
 		Main = GameObject.FindGameObjectWithTag ("Main");
 		
 		spawner = Main.GetComponent<Spawner>();
 		scoreManager = Main.GetComponent<ScoreManager> ();
 		catHealth = Main.GetComponent<CatHealth> ();
+
+		source = GetComponent<AudioSource> ();
 	}
 
 	void OnMouseDown() {
@@ -34,8 +39,10 @@ public class Kill : MonoBehaviour {
 	}
 
 	void KillFlea() {
+		source.PlayOneShot (smashSound, 1F);
 		Destroy(gameObject);
 		spawner.FleaCounter--;
+
 	}
 	
 }
