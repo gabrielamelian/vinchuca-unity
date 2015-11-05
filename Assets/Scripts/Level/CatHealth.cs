@@ -30,6 +30,11 @@ public class CatHealth : MonoBehaviour {
 	{
 		gameOverText.enabled = true;
 		gameOverImage.enabled = true;
+		Invoke ("LoadMenu", 4);
+	}
+
+	void LoadMenu() {
+		Application.LoadLevel("Menu");
 	}
 
 }
