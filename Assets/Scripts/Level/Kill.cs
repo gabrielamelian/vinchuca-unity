@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Kill : MonoBehaviour {
 	
-	public int ScoreValue;
 	public int FleaDamage;
 
 	private GameObject Main;
@@ -26,7 +25,7 @@ public class Kill : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		scoreManager.AddScore (ScoreValue);
+		scoreManager.AddScore (spawner.fleaScore);
 		KillFlea ();
 	}
 
