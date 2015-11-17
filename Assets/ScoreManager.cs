@@ -6,10 +6,11 @@ public class ScoreManager : MonoBehaviour {
 	
 	public Text scoreText;
 	private int score = 0;
-	
+
 	public void AddScore (int pointsWon) {
 		score += pointsWon;
-		scoreText.text = "Score: " + score; 
+		//Debug.Log (pointsWon);
+		scoreText.text = "" + score;
 	}
-	
+
 }

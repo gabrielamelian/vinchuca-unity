@@ -77,8 +77,8 @@ public class Spawner : MonoBehaviour {
 			difficultyTimer = 0f;
 
 
-			Debug.Log (string.Format("MaxFleas: {0}, PercentageSpawn: {1}, timeBetweenSpawns: {2}", 
-			                         maxFleas, percentageSpawn, timeBetweenSpawns));
+			//Debug.Log (string.Format("MaxFleas: {0}, PercentageSpawn: {1}, timeBetweenSpawns: {2}", 
+			//                         maxFleas, percentageSpawn, timeBetweenSpawns));
 
 		}
 	}

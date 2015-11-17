@@ -4,14 +4,15 @@ using UnityEngine.UI;
 
 public class CatHealth : MonoBehaviour {
 
-	public int maxHealth = 100;
+	public float maxHealth = 100f;
 	public Slider healthSlider;
-	
+	public Image healthFill;
+
 	public Text gameOverText;
 	public Image gameOverImage;
-		
-	private int currentHealth;
-	
+
+	private float currentHealth;
+
 	void Start () {
 		currentHealth = maxHealth;
 	}
@@ -19,6 +20,7 @@ public class CatHealth : MonoBehaviour {
 	public void ReceiveDamage(int damage) {
 		currentHealth -= damage;
 		healthSlider.value = currentHealth;
+		healthFill.fillAmount = currentHealth / maxHealth;
 
 		if (currentHealth <= 0)
 		{
