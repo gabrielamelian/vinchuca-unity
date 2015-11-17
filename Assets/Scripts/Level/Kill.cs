@@ -21,10 +21,12 @@ public class Kill : MonoBehaviour {
 		scoreManager = Main.GetComponent<ScoreManager> ();
 		catHealth = Main.GetComponent<CatHealth> ();
 		source = Main.GetComponent<AudioSource> ();
+
+		//Debug.Log ("Instance - Initial: " + spawner.initialFleaScore + ", Score: " + spawner.fleaScore);
+
 	}
 
 	void OnMouseDown() {
-		Debug.Log (spawner.fleaScore);
 		scoreManager.AddScore (spawner.fleaScore);
 		source.PlayOneShot (smashSound, 1F);
 		KillFlea ();

@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
 	public float timeBetweenDifficulty;
 
 	public int initialFleaScore;
-	[System.NonSerialized]
+	//[System.NonSerialized]
 	public int fleaScore;
 
 
@@ -58,10 +58,10 @@ public class Spawner : MonoBehaviour {
 		if(difficultyTimer > timeBetweenDifficulty) {
 			bool increaseMaxFleas = currentDiff % 6 == 0 && currentDiff != 0;
 			if(increaseMaxFleas) {
-				fleaScore += fleaScore * 5; // make it fun
+				//fleaScore += fleaScore * 5; // make it fun
 				maxFleas += 1;
 			} else {
-				fleaScore += fleaScore;
+				//fleaScore += fleaScore;
 				float newPercentageSpawn = percentageSpawn + 0.25f;
 				if(!(newPercentageSpawn > maxPercentageSpawn)) {
 					percentageSpawn = newPercentageSpawn;
@@ -77,8 +77,8 @@ public class Spawner : MonoBehaviour {
 			difficultyTimer = 0f;
 
 
-			//Debug.Log (string.Format("MaxFleas: {0}, PercentageSpawn: {1}, timeBetweenSpawns: {2}", 
-			//                         maxFleas, percentageSpawn, timeBetweenSpawns));
+			Debug.Log (string.Format("MaxFleas: {0}, PercentageSpawn: {1}, timeBetweenSpawns: {2}", 
+			                         maxFleas, percentageSpawn, timeBetweenSpawns));
 
 		}
 	}

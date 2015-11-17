@@ -9,8 +9,7 @@ public class ScoreManager : MonoBehaviour {
 
 	public void AddScore (int pointsWon) {
 		score += pointsWon;
-		//Debug.Log (pointsWon);
-		scoreText.text = "" + score;
+		scoreText.text = score.ToString();
 	}
 
 }
