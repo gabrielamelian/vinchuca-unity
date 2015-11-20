@@ -4,21 +4,18 @@ using System.Collections;
 public class Spawner : MonoBehaviour {
 
 	public GameObject Flea;
-
+	[System.NonSerialized]
 	public int FleaCounter = 0;
+	[System.NonSerialized]
+	public int fleaScore = 15;
 
-	public int initialMaxFleas;
-	public float initialPercentageSpawn;
-	public float timeBetweenSpawns;
-	public float timeBetweenDifficulty;
+	private int initialMaxFleas = 1;
+	private float initialPercentageSpawn = 60f;
+	private float timeBetweenSpawns = 0.8f;
+	private float timeBetweenDifficulty = 10f;
 
-	public int initialFleaScore;
-	//[System.NonSerialized]
-	public int fleaScore;
-
-
-	public float maxPercentageSpawn;
-	public float minTimeBetweenSpawns;
+	private float maxPercentageSpawn = 80f;
+	private float minTimeBetweenSpawns = 0.2f;
 
 	private int maxFleas;
 	private int currentDiff = 0;
@@ -29,7 +26,6 @@ public class Spawner : MonoBehaviour {
 	void Start() {
 		maxFleas = initialMaxFleas;
 		percentageSpawn = initialPercentageSpawn;
-		fleaScore = initialFleaScore;
 	}
 		
 	void Update() {
@@ -58,10 +54,8 @@ public class Spawner : MonoBehaviour {
 		if(difficultyTimer > timeBetweenDifficulty) {
 			bool increaseMaxFleas = currentDiff % 6 == 0 && currentDiff != 0;
 			if(increaseMaxFleas) {
-				//fleaScore += fleaScore * 5; // make it fun
 				maxFleas += 1;
 			} else {
-				//fleaScore += fleaScore;
 				float newPercentageSpawn = percentageSpawn + 0.25f;
 				if(!(newPercentageSpawn > maxPercentageSpawn)) {
 					percentageSpawn = newPercentageSpawn;
@@ -76,9 +70,8 @@ public class Spawner : MonoBehaviour {
 			currentDiff += 1;
 			difficultyTimer = 0f;
 
-
 			Debug.Log (string.Format("MaxFleas: {0}, PercentageSpawn: {1}, timeBetweenSpawns: {2}", 
-			                         maxFleas, percentageSpawn, timeBetweenSpawns));
+				maxFleas, percentageSpawn, timeBetweenSpawns));
 
 		}
 	}
