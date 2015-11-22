@@ -13,8 +13,13 @@ public class CatHealth : MonoBehaviour {
 
 	private float currentHealth;
 
+	private ScoreManager scoreManager;
+
 	void Start () {
 		currentHealth = maxHealth;
+
+		GameObject Main = GameObject.FindGameObjectWithTag ("Main");
+		scoreManager = Main.GetComponent<ScoreManager> ();
 	}
 
 	public void ReceiveDamage(int damage) {
@@ -32,6 +37,7 @@ public class CatHealth : MonoBehaviour {
 	{
 		gameOverText.enabled = true;
 		gameOverImage.enabled = true;
+		scoreManager.WriteHighScore ();
 		Invoke ("LoadMenu", 4);
 	}
 
