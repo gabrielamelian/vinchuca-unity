@@ -23,14 +23,22 @@ public class Spawner : MonoBehaviour {
 	private float spawnTimer;
 	private float difficultyTimer;
 
+	private GameObject Main;
+	private CatHealth catHealth;
+
 	void Start() {
 		maxFleas = initialMaxFleas;
 		percentageSpawn = initialPercentageSpawn;
+
+		Main = GameObject.FindGameObjectWithTag ("Main");
+		catHealth = Main.GetComponent<CatHealth> ();
 	}
 		
 	void Update() {
-		Spawn ();
-		IncreaseDifficulty ();
+		if (catHealth.currentHealth > 0) {
+			Spawn ();
+			IncreaseDifficulty ();
+		}
 	}
 
 	void Spawn() {

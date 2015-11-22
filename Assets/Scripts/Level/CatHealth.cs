@@ -11,7 +11,7 @@ public class CatHealth : MonoBehaviour {
 	public Text gameOverText;
 	public Image gameOverImage;
 
-	private float currentHealth;
+	public float currentHealth;
 
 	private ScoreManager scoreManager;
 
@@ -38,7 +38,7 @@ public class CatHealth : MonoBehaviour {
 		gameOverText.enabled = true;
 		gameOverImage.enabled = true;
 		scoreManager.WriteHighScore ();
-		Invoke ("LoadMenu", 4);
+		//Invoke ("LoadMenu", 4);
 	}
 
 	void LoadMenu() {
