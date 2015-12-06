@@ -24,7 +24,6 @@ public class CatHealth : MonoBehaviour {
 
 	public void ReceiveDamage(int damage) {
 		currentHealth -= damage;
-		healthSlider.value = currentHealth;
 		healthFill.fillAmount = currentHealth / maxHealth;
 
 		if (currentHealth <= 0)
