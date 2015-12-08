@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class ScoreManager : MonoBehaviour {
 
+	public Canvas HighScoresCanvas;
+
 	public Text scoreText;
 	private int score = 0;
 	public int maxHiScoreEntries;
@@ -43,12 +45,17 @@ public class ScoreManager : MonoBehaviour {
 			Debug.Log(currentScore.name + " " + currentScore.score);
 		}
 
+		HighScoresCanvas.enabled = false;
+
 	}
 
 	public void WriteHighScore() {
 
 		if (score > scores [scores.Count - 1].score)
 		{
+
+			HighScoresCanvas.enabled = true;
+
 			Score newHighScore = new Score ();
 			newHighScore.name = "Alturil";
 			newHighScore.score = score;
