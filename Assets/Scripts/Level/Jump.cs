@@ -8,7 +8,7 @@ public class Jump : MonoBehaviour {
 	public AudioClip JumpSound3;
 	private AudioSource source;
 
-	private Rigidbody rb;
+	private Rigidbody2D rb;
 
 	void Awake () {
 		source = GetComponent<AudioSource> ();
@@ -17,16 +17,9 @@ public class Jump : MonoBehaviour {
 	void Start () {
 		float impulseX = Random.Range(-3f, 3f);
 		float impulseY = Random.Range(5f, 10f);
-//		float torqueX = Random.Range(-200f, 200f);
-//		float torqueY = Random.Range(-200f, 200f);
 	
-		rb = GetComponent<Rigidbody> ();
-		rb.AddForce (new Vector3 (impulseX, impulseY), ForceMode.Impulse);
-		//rb.AddTorque (0, torqueY, 0);
-		
-		if (impulseX > 0f) {
-			rb.rotation = Quaternion.Euler(0f, 180f, 0f);
-		}
+		rb = GetComponent<Rigidbody2D> ();
+		rb.AddForce (new Vector3 (impulseX, impulseY), ForceMode2D.Impulse);
 
 		PlayJumpSound ( Random.Range(1, 4));
 
