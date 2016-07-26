@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
 	public void LoadLevel (string levelName) {
-		Application.LoadLevel(levelName);
+        SceneManager.LoadScene(levelName);
 	}
-	
+    	
 }

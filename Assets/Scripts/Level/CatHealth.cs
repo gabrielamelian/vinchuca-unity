@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CatHealth : MonoBehaviour {
 
 	public float maxHealth = 100f;
 	public Slider healthSlider;
 	public Image healthFill;
-
-	public Text gameOverText;
-	public Image gameOverImage;
 
 	public float currentHealth;
 
@@ -32,16 +30,11 @@ public class CatHealth : MonoBehaviour {
 		}
 	}
 
-	void KillCat()
-	{
-		gameOverText.enabled = true;
-		gameOverImage.enabled = true;
-		scoreManager.WriteHighScore ();
-		//Invoke ("LoadMenu", 4);
-	}
+	void KillCat() {
+        Score score = new Score();
+        score.score = scoreManager.GetScore();
+        ApplicationData.lastScore = score;
 
-	void LoadMenu() {
-		Application.LoadLevel("Menu");
+        SceneManager.LoadScene("GameOver");
 	}
-
 }
