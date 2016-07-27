@@ -16,7 +16,7 @@ public class Jump : MonoBehaviour {
 
 	void Start () {
 		float impulseX = Random.Range(-3f, 3f);
-		float impulseY = Random.Range(5f, 10f);
+		float impulseY = Random.Range(7f, 10f);
 	
 		rb = GetComponent<Rigidbody2D> ();
 		rb.AddForce (new Vector3 (impulseX, impulseY), ForceMode2D.Impulse);
