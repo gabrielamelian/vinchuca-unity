@@ -11,15 +11,17 @@ public class Spawner : MonoBehaviour {
 
 	private int initialMaxFleas = 1;
 	private float initialPercentageSpawn = 60f;
-	private float timeBetweenSpawns = 0.8f;
-	private float timeBetweenDifficulty = 10f;
-
-	private float maxPercentageSpawn = 80f;
+    private float initialTimeBetweenSpawns = 0.8f;
+    private int maxFleas;
+    private float percentageSpawn;
+    private float timeBetweenSpawns;
+    
+    private float timeBetweenDifficulty = 10f;
+    private float maxPercentageSpawn = 80f;
 	private float minTimeBetweenSpawns = 0.2f;
-
-	private int maxFleas;
-	private int currentDiff = 0;
-	private float percentageSpawn;
+    
+    private int currentDiff = 0;
+	
 	private float spawnTimer;
 	private float difficultyTimer;
 
@@ -28,11 +30,16 @@ public class Spawner : MonoBehaviour {
 
 	void Start() {
 		maxFleas = initialMaxFleas;
-		percentageSpawn = initialPercentageSpawn;
-
-		Main = GameObject.FindGameObjectWithTag ("Main");
+        ResetSpawnRate();
+		
+        Main = GameObject.FindGameObjectWithTag ("Main");
 		catHealth = Main.GetComponent<CatHealth> ();
 	}
+
+    void ResetSpawnRate() {
+        percentageSpawn = initialPercentageSpawn;
+        timeBetweenSpawns = initialTimeBetweenSpawns;
+    }
 		
 	void Update() {
 		if (catHealth.currentHealth > 0) {
@@ -44,12 +51,18 @@ public class Spawner : MonoBehaviour {
 	void Spawn() {
 		spawnTimer += Time.deltaTime;
 		
-		if (spawnTimer >= timeBetweenSpawns && FleaCounter < maxFleas) {
+		if (spawnTimer >= timeBetweenSpawns) {
 			float random = Random.Range(0,100);
 			
 			if (random < percentageSpawn) {
-				Instantiate (Flea, new Vector2 (Random.Range(-5F, 5F), 0), Quaternion.identity);
-				FleaCounter++;
+                int nb = Random.Range(1, maxFleas + 1);
+                Debug.Log(string.Format("{0}/maxFleas", nb));
+                for (int i = 0; i < nb; i++) {
+                    if (FleaCounter < maxFleas) {
+                        Instantiate(Flea, new Vector2(Random.Range(-5F, 5F), 0), Quaternion.identity);
+                        FleaCounter++;
+                    }
+                }
 			}
 			
 			spawnTimer = 0f;
@@ -63,7 +76,8 @@ public class Spawner : MonoBehaviour {
 			bool increaseMaxFleas = currentDiff % 6 == 0 && currentDiff != 0;
 			if(increaseMaxFleas) {
 				maxFleas += 1;
-			} else {
+                ResetSpawnRate();
+            } else {
 				float newPercentageSpawn = percentageSpawn + 0.25f;
 				if(!(newPercentageSpawn > maxPercentageSpawn)) {
 					percentageSpawn = newPercentageSpawn;
