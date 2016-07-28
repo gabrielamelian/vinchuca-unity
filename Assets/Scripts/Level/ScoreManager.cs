@@ -8,18 +8,18 @@ public class ApplicationData {
 
 public class ScoreManager : MonoBehaviour {
 
-	public Text scoreText;
-	private int score = 0;
+    public Text scoreText;
+    private int score = 0;
 
     public void AddScore (int pointsWon) {
-		score += pointsWon;
-		scoreText.text = score.ToString();
-	}
+        score += pointsWon;
+        scoreText.text = score.ToString();
+    }
 
     public int GetScore() {
         return this.score;
     }
-	
+    
 }
 
 public class Score {
