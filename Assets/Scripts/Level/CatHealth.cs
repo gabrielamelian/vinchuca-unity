@@ -13,19 +13,18 @@ public class CatHealth : MonoBehaviour {
 
     private ScoreManager scoreManager;
 
-    void Start () {
+    void Start() {
         currentHealth = maxHealth;
 
-        GameObject Main = GameObject.FindGameObjectWithTag ("Main");
-        scoreManager = Main.GetComponent<ScoreManager> ();
+        GameObject Main = GameObject.FindGameObjectWithTag("Main");
+        scoreManager = Main.GetComponent<ScoreManager>();
     }
 
     public void ReceiveDamage(int damage) {
         currentHealth -= damage;
         healthFill.fillAmount = currentHealth / maxHealth;
 
-        if (currentHealth <= 0)
-        {
+        if(currentHealth <= 0) {
             KillCat();
         }
     }

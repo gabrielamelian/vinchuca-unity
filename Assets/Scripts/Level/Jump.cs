@@ -10,33 +10,32 @@ public class Jump : MonoBehaviour {
 
     private Rigidbody2D rb;
 
-    void Awake () {
-        source = GetComponent<AudioSource> ();
+    void Awake() {
+        source = GetComponent<AudioSource>();
     }
 
-    void Start () {
+    void Start() {
         float impulseX = Random.Range(-3f, 3f);
         float impulseY = Random.Range(7f, 10f);
-    
-        rb = GetComponent<Rigidbody2D> ();
-        rb.AddForce (new Vector3 (impulseX, impulseY), ForceMode2D.Impulse);
 
-        PlayJumpSound ( Random.Range(1, 4));
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector3(impulseX, impulseY), ForceMode2D.Impulse);
+
+        PlayJumpSound(Random.Range(1, 4));
 
     }
 
-    void PlayJumpSound(int SoundId) {	
-        switch (SoundId)
-        {
-        case 1:
-            source.PlayOneShot (JumpSound1);
-            break;
-        case 2:
-            source.PlayOneShot (JumpSound2);
-            break;
-        case 3:
-            source.PlayOneShot (JumpSound3);
-            break;
+    void PlayJumpSound(int SoundId) {
+        switch(SoundId) {
+            case 1:
+                source.PlayOneShot(JumpSound1);
+                break;
+            case 2:
+                source.PlayOneShot(JumpSound2);
+                break;
+            case 3:
+                source.PlayOneShot(JumpSound3);
+                break;
         }
     }
 

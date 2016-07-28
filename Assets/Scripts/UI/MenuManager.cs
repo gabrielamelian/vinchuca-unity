@@ -4,8 +4,8 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour {
 
-    public void LoadLevel (string levelName) {
+    public void LoadLevel(string levelName) {
         SceneManager.LoadScene(levelName);
     }
-        
+
 }

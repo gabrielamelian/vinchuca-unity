@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour {
     public Text scoreText;
     private int score = 0;
 
-    public void AddScore (int pointsWon) {
+    public void AddScore(int pointsWon) {
         score += pointsWon;
         scoreText.text = score.ToString();
     }
@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour {
     public int GetScore() {
         return this.score;
     }
-    
+
 }
 
 public class Score {

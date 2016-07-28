@@ -2,44 +2,43 @@
 using System.Collections;
 
 public class Kill : MonoBehaviour {
-	
-	public int FleaDamage;
 
-	private GameObject Main;
+    public int FleaDamage;
 
-	private Spawner spawner;
-	private ScoreManager scoreManager;
-	private CatHealth catHealth;
+    private GameObject Main;
 
-	public AudioClip smashSound;
-	private AudioSource source;
+    private Spawner spawner;
+    private ScoreManager scoreManager;
+    private CatHealth catHealth;
 
-	void Start () {
-        Main = GameObject.FindGameObjectWithTag ("Main");
-		
-		spawner = Main.GetComponent<Spawner>();
-		scoreManager = Main.GetComponent<ScoreManager> ();
-		catHealth = Main.GetComponent<CatHealth> ();
-		source = Main.GetComponent<AudioSource> ();
-	}
+    public AudioClip smashSound;
+    private AudioSource source;
 
-	void OnMouseDown() {
-		scoreManager.AddScore (spawner.fleaScore);
-		source.PlayOneShot (smashSound, 1F);
-		KillFlea ();
-	}
+    void Start() {
+        Main = GameObject.FindGameObjectWithTag("Main");
 
-	void Update()
-	{			
-		if (gameObject.transform.position.y < -1f) {
-			KillFlea();
-			catHealth.ReceiveDamage(FleaDamage);
-		}
-	}
+        spawner = Main.GetComponent<Spawner>();
+        scoreManager = Main.GetComponent<ScoreManager>();
+        catHealth = Main.GetComponent<CatHealth>();
+        source = Main.GetComponent<AudioSource>();
+    }
 
-	void KillFlea() {
-		Destroy(gameObject);
-		spawner.FleaCounter--;
-	}
+    void OnMouseDown() {
+        scoreManager.AddScore(spawner.fleaScore);
+        source.PlayOneShot(smashSound, 1F);
+        KillFlea();
+    }
+
+    void Update() {
+        if(gameObject.transform.position.y < -1f) {
+            KillFlea();
+            catHealth.ReceiveDamage(FleaDamage);
+        }
+    }
+
+    void KillFlea() {
+        Destroy(gameObject);
+        spawner.FleaCounter--;
+    }
 
 }

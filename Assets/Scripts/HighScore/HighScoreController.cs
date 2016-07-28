@@ -16,7 +16,7 @@ public class HighScoreController : MonoBehaviour {
 
     void Start() {
         this.scoreFilePath = Application.persistentDataPath + STORE_FILENAME;
-        if (!ApplicationData.lastScore.saved) {
+        if(!ApplicationData.lastScore.saved) {
             WriteHighScore(ApplicationData.lastScore);
             ApplicationData.lastScore.saved = true;
         }
@@ -29,7 +29,7 @@ public class HighScoreController : MonoBehaviour {
 
         string nameString = "";
         string scoreString = "";
-        foreach (Score s in scores) {
+        foreach(Score s in scores) {
             nameString += s.name + System.Environment.NewLine;
             scoreString += s.score + System.Environment.NewLine;
         }
@@ -42,17 +42,16 @@ public class HighScoreController : MonoBehaviour {
         bool alreadyAppended = false;
         List<Score> scores = GetCurrentScores();
         List<Score> newScores = new List<Score>();
-        foreach (Score s in scores) {
-            if (newScores.Count == MAX_SCORES) {
+        foreach(Score s in scores) {
+            if(newScores.Count == MAX_SCORES) {
                 break;
             }
 
-            if (scoreToWrite.score >= s.score && !alreadyAppended) {
+            if(scoreToWrite.score >= s.score && !alreadyAppended) {
                 newScores.Add(scoreToWrite);
                 newScores.Add(s);
                 alreadyAppended = true;
-            }
-            else {
+            } else {
                 newScores.Add(s);
             }
         }
@@ -64,11 +63,11 @@ public class HighScoreController : MonoBehaviour {
         int i = 0;
         string scoresStr = "";
         int count = scores.Count;
-        foreach (Score s in scores) {
+        foreach(Score s in scores) {
             scoresStr += s.name + ",";
             scoresStr += s.score;
 
-            if (i < count - 1) {
+            if(i < count - 1) {
                 scoresStr += System.Environment.NewLine;
             }
 
@@ -77,18 +76,17 @@ public class HighScoreController : MonoBehaviour {
 
         File.WriteAllText(scoreFilePath, scoresStr);
     }
-    
+
     public void BackToMenu() {
         SceneManager.LoadScene("Menu");
     }
-    
+
     public static List<Score> GetCurrentScores() {
         string scoreFilePath = GetFilePath();
         bool fileExists = File.Exists(scoreFilePath);
-        if (fileExists) {
+        if(fileExists) {
             return GetScoresFromFile();
-        }
-        else {
+        } else {
             return GetFakeScores();
         }
     }
@@ -96,7 +94,7 @@ public class HighScoreController : MonoBehaviour {
     static List<Score> GetScoresFromFile() {
         List<Score> scores = new List<Score>();
         string[] lines = File.ReadAllLines(GetFilePath());
-        foreach (string line in lines) {
+        foreach(string line in lines) {
             string[] splat = line.Split(',');
 
             Score score = new Score();
@@ -109,7 +107,7 @@ public class HighScoreController : MonoBehaviour {
 
         return scores;
     }
-    
+
     public static List<Score> GetFakeScores() {
         List<Score> scores = new List<Score>();
 
@@ -130,11 +128,11 @@ public class HighScoreController : MonoBehaviour {
     public static string GetFilePath() {
         return Application.persistentDataPath + HighScoreController.STORE_FILENAME;
     }
-    
+
     public static bool IsNewHighScore(int newScore) {
         List<Score> scores = GetCurrentScores();
-        foreach (Score s in scores) {
-            if (newScore >= s.score) {
+        foreach(Score s in scores) {
+            if(newScore >= s.score) {
                 return true;
             }
         }
