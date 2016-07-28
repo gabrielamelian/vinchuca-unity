@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour {
 
-	void Start () {
+    void Start () {
         Invoke("LoadNext", 4);
-	}
+    }
 
     void LoadNext() {
         int lastScore = ApplicationData.lastScore.score;

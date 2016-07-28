@@ -15,7 +15,7 @@ public class Kill : MonoBehaviour {
 	private AudioSource source;
 
 	void Start () {
-		Main = GameObject.FindGameObjectWithTag ("Main");
+        Main = GameObject.FindGameObjectWithTag ("Main");
 		
 		spawner = Main.GetComponent<Spawner>();
 		scoreManager = Main.GetComponent<ScoreManager> ();
