@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour {
     private int maxFleas;
     private float percentageSpawn;
     private float timeBetweenSpawns;
-    
+
     private float timeBetweenDifficulty = 10f;
     private float maxPercentageSpawn = 80f;
 	private float minTimeBetweenSpawns = 0.2f;
