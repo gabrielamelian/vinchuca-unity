@@ -7,7 +7,7 @@ public class Kill : MonoBehaviour {
 
     private GameObject Main;
 
-    private Spawner spawner;
+    private FleaSpawner spawner;
     private ScoreManager scoreManager;
     private CatHealth catHealth;
 
@@ -17,7 +17,7 @@ public class Kill : MonoBehaviour {
     void Start() {
         Main = GameObject.FindGameObjectWithTag("Main");
 
-        spawner = Main.GetComponent<Spawner>();
+        spawner = Main.GetComponent<FleaSpawner>();
         scoreManager = Main.GetComponent<ScoreManager>();
         catHealth = Main.GetComponent<CatHealth>();
         source = Main.GetComponent<AudioSource>();

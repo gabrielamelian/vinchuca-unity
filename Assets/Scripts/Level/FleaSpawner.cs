@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
+public class FleaSpawner : MonoBehaviour {
 
-    public GameObject Flea;
+    public GameObject flea;
     [System.NonSerialized]
     public int FleaCounter = 0;
     [System.NonSerialized]
@@ -25,15 +25,15 @@ public class Spawner : MonoBehaviour {
     private float spawnTimer;
     private float difficultyTimer;
 
-    private GameObject Main;
+    private GameObject main;
     private CatHealth catHealth;
 
     void Start() {
         maxFleas = initialMaxFleas;
         ResetSpawnRate();
 
-        Main = GameObject.FindGameObjectWithTag("Main");
-        catHealth = Main.GetComponent<CatHealth>();
+        main = GameObject.FindGameObjectWithTag("Main");
+        catHealth = main.GetComponent<CatHealth>();
     }
 
     void ResetSpawnRate() {
@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour {
         timeBetweenSpawns = initialTimeBetweenSpawns;
     }
 
-    void Update() {
+    void FixedUpdate() {
         if(catHealth.currentHealth > 0) {
             Spawn();
             IncreaseDifficulty();
@@ -56,10 +56,9 @@ public class Spawner : MonoBehaviour {
 
             if(random < percentageSpawn) {
                 int nb = Random.Range(1, maxFleas + 1);
-                Debug.Log(string.Format("{0}/maxFleas", nb));
                 for(int i = 0; i < nb; i++) {
                     if(FleaCounter < maxFleas) {
-                        Instantiate(Flea, new Vector2(Random.Range(-5F, 5F), 0), Quaternion.identity);
+                        Instantiate(flea, new Vector2(Random.Range(-5F, 5F), 0), Quaternion.identity);
                         FleaCounter++;
                     }
                 }
@@ -91,10 +90,6 @@ public class Spawner : MonoBehaviour {
 
             currentDiff += 1;
             difficultyTimer = 0f;
-
-            Debug.Log(string.Format("MaxFleas: {0}, PercentageSpawn: {1}, timeBetweenSpawns: {2}",
-                maxFleas, percentageSpawn, timeBetweenSpawns));
-
         }
     }
 

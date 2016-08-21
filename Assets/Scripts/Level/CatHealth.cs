@@ -20,13 +20,29 @@ public class CatHealth : MonoBehaviour {
         scoreManager = Main.GetComponent<ScoreManager>();
     }
 
-    public void ReceiveDamage(int damage) {
-        currentHealth -= damage;
+    private void UpdateHealth(float newHealth) {
+        currentHealth = newHealth;
         healthFill.fillAmount = currentHealth / maxHealth;
+    }
+
+    public void ReceiveDamage(int damage) {
+        float newHealthAmount = currentHealth - damage;
+        UpdateHealth(newHealthAmount);
 
         if(currentHealth <= 0) {
             KillCat();
         }
+    }
+
+    public void ReceiveHeal(float healAmount) {
+        float newHealthAmount = currentHealth + healAmount;
+
+        if(newHealthAmount > maxHealth) {
+            UpdateHealth(maxHealth);
+        } else {
+            UpdateHealth(newHealthAmount);
+        }
+
     }
 
     void KillCat() {
