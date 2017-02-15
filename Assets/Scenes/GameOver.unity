@@ -162,6 +162,7 @@ GameObject:
   - 224: {fileID: 395254615}
   - 222: {fileID: 395254617}
   - 114: {fileID: 395254616}
+  - 114: {fileID: 395254618}
   m_Layer: 5
   m_Name: GameOverText
   m_TagString: Untagged
@@ -226,6 +227,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 395254614}
+--- !u!114 &395254618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395254614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.19607843}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &396530227
 GameObject:
   m_ObjectHideFlags: 0
