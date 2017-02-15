@@ -30,10 +30,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5077376
 Rigidbody2D:
   serializedVersion: 2
@@ -116,7 +116,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -127,7 +127,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -138,7 +138,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &11444678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +166,7 @@ MonoBehaviour:
   JumpSound1: {fileID: 8300000, guid: 1e0ad9963a86d164bbe8922c1024c310, type: 3}
   JumpSound2: {fileID: 8300000, guid: 7ac4c964d59fd8d45b5bb72de82a7c0d, type: 3}
   JumpSound3: {fileID: 8300000, guid: b55b0c846f849d841bec68b6f95213ec, type: 3}
+  fleaFalling: {fileID: 21300000, guid: b9147170a439ded42915b381c8cbe9e5, type: 3}
 --- !u!212 &21204692
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -188,13 +189,14 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7c682965720e54e4f90cbc0e9f5b2ac5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99498ddbaf0f64b488381ec6671dd10f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
