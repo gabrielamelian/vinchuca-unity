@@ -6,7 +6,9 @@ public class Jump : MonoBehaviour {
     public AudioClip JumpSound1;
     public AudioClip JumpSound2;
     public AudioClip JumpSound3;
+	public Sprite fleaFalling;
     private AudioSource source;
+	private SpriteRenderer fleaImage;
 
     private Rigidbody2D rb;
 
@@ -15,6 +17,8 @@ public class Jump : MonoBehaviour {
     }
 
     void Start() {
+		fleaImage = GetComponent<SpriteRenderer> ();
+
         float impulseX = Random.Range(-3f, 3f);
         float impulseY = Random.Range(7f, 10f);
 
@@ -24,6 +28,12 @@ public class Jump : MonoBehaviour {
         PlayJumpSound(Random.Range(1, 4));
 
     }
+
+	void FixedUpdate() {
+		if (rb.velocity.y < 0) {
+			fleaImage.sprite = fleaFalling;
+		}
+	}
 
     void PlayJumpSound(int SoundId) {
         switch(SoundId) {
