@@ -11,13 +11,8 @@ public class CatHealth : MonoBehaviour {
 
     public float currentHealth;
 
-    private ScoreManager scoreManager;
-
     void Start() {
         currentHealth = maxHealth;
-
-        GameObject Main = GameObject.FindGameObjectWithTag("Main");
-        scoreManager = Main.GetComponent<ScoreManager>();
     }
 
     private void UpdateHealth(float newHealth) {
@@ -46,10 +41,6 @@ public class CatHealth : MonoBehaviour {
     }
 
     void KillCat() {
-        Score score = new Score();
-        score.score = scoreManager.GetScore();
-        ApplicationData.lastScore = score;
-
         SceneManager.LoadScene("GameOver");
     }
 }
