@@ -7,7 +7,7 @@ public class HighScoreInputController : MonoBehaviour {
 
     public InputField input;
 
-    public void OnClick() {
+    public void SubmitName() {
         string name = input.text;
         if(name.Length != 0) {
             ApplicationData.lastScore.name = name;
