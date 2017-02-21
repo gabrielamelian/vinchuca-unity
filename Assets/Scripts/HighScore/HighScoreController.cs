@@ -12,7 +12,7 @@ public class HighScoreController : MonoBehaviour {
     public static string STORE_FILENAME = "/HighScores.txt";
 
     private string scoreFilePath;
-    private int MAX_SCORES = 10;
+    private int MAX_SCORES = 5;
 
     void Start() {
         this.scoreFilePath = Application.persistentDataPath + STORE_FILENAME;
@@ -115,12 +115,7 @@ public class HighScoreController : MonoBehaviour {
         scores.Add(new Score { name = "Gaby", score = 750 });
         scores.Add(new Score { name = "Altu", score = 500 });
         scores.Add(new Score { name = "Peter", score = 137 });
-        scores.Add(new Score { name = "Peter", score = 133 });
-        scores.Add(new Score { name = "BOB", score = 100 });
-        scores.Add(new Score { name = "BOB", score = 75 });
-        scores.Add(new Score { name = "BOB", score = 50 });
-        scores.Add(new Score { name = "BOB", score = 25 });
-        scores.Add(new Score { name = "BOB", score = 15 });
+        scores.Add(new Score { name = "Eze", score = 133 });
 
         return scores;
     }
