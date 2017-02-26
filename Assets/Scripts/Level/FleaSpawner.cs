@@ -9,19 +9,39 @@ public class FleaSpawner : MonoBehaviour {
     [System.NonSerialized]
     public int fleaScore = 15;
 
+	/// <summary>
+	/// Initial values for variables.
+	/// </summary>
     private int initialMaxFleas = 1;
-    private float initialPercentageSpawn = 60f;
+    private float initialPercentageSpawn = 63f;
     private float initialTimeBetweenSpawns = 0.8f;
-    private int maxFleas;
+    
+	/// <summary>
+	/// Changing values that contain current difficulty settings
+	/// </summary>
+	private int maxFleas;
     private float percentageSpawn;
     private float timeBetweenSpawns;
 
+	/// <summary>
+	/// Time between difficulty changes.
+	/// </summary>
     private float timeBetweenDifficulty = 10f;
+
+	/// <summary>
+	/// Upper limits of individual difficulty increases.
+	/// </summary>
     private float maxPercentageSpawn = 80f;
     private float minTimeBetweenSpawns = 0.2f;
 
+	/// <summary>
+	/// Number of times we have increased difficulty.
+	/// </summary>
     private int currentDiff = 0;
 
+	/// <summary>
+	/// Internal timers used by the scripts.
+	/// </summary>
     private float spawnTimer;
     private float difficultyTimer;
 
