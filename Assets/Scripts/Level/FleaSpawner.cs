@@ -13,7 +13,7 @@ public class FleaSpawner : MonoBehaviour {
 	/// Initial values for variables.
 	/// </summary>
     private int initialMaxFleas = 1;
-    private float initialPercentageSpawn = 60f;
+    private float initialPercentageSpawn = 63f;
     private float initialTimeBetweenSpawns = 0.8f;
     
 	/// <summary>
