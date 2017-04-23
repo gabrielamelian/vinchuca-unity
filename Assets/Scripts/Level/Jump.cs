@@ -22,6 +22,10 @@ public class Jump : MonoBehaviour {
         float impulseX = Random.Range(-3f, 3f);
         float impulseY = Random.Range(7f, 10f);
 
+		if (impulseX > 0f) {
+			fleaImage.flipX = true;
+		}
+
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector3(impulseX, impulseY), ForceMode2D.Impulse);
 
