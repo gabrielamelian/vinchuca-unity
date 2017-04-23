@@ -8,4 +8,8 @@ public class MenuManager : MonoBehaviour {
         SceneManager.LoadScene(levelName);
     }
 
+	public void ExitApplication() {
+		Application.Quit ();
+	}
+
 }
