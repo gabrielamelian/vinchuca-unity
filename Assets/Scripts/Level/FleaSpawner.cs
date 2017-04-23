@@ -22,6 +22,7 @@ public class FleaSpawner : MonoBehaviour {
 	private int maxFleas;
     private float percentageSpawn;
     private float timeBetweenSpawns;
+	private float lastSpawnTime;
 
 	/// <summary>
 	/// Time between difficulty changes.
@@ -29,10 +30,12 @@ public class FleaSpawner : MonoBehaviour {
     private float timeBetweenDifficulty = 10f;
 
 	/// <summary>
-	/// Upper limits of individual difficulty increases.
+	/// Static values that define limits within randomness.
 	/// </summary>
     private float maxPercentageSpawn = 80f;
     private float minTimeBetweenSpawns = 0.2f;
+	private float minJumpInterval = 0.3f;
+	private float maxTimeSinceLastSpawn = 2f;
 
 	/// <summary>
 	/// Number of times we have increased difficulty.
@@ -56,6 +59,9 @@ public class FleaSpawner : MonoBehaviour {
         catHealth = main.GetComponent<CatHealth>();
     }
 
+	/// <summary>
+	/// Resets the spawn rate. This prevents issues with difficulty being preserved between game runs.
+	/// </summary>
     void ResetSpawnRate() {
         percentageSpawn = initialPercentageSpawn;
         timeBetweenSpawns = initialTimeBetweenSpawns;
@@ -63,11 +69,25 @@ public class FleaSpawner : MonoBehaviour {
 
     void FixedUpdate() {
         if(catHealth.currentHealth > 0) {
-            Spawn();
-            IncreaseDifficulty();
+            Spawn ();
+            IncreaseDifficulty ();
+			EmergencySpawn ();
         }
     }
 
+	/// <summary>
+	/// Instantiates an instance of a flea in a random location. Updates state 
+	/// regarding time between spawns as well as the number of fleas on the scene.
+	/// </summary>
+	void InstantiateFlea() {
+		Instantiate(flea, new Vector2(Random.Range(-5F, 5F), 0), Quaternion.identity);
+		FleaCounter++;
+		lastSpawnTime = Time.time;
+	}
+
+	/// <summary>
+	/// Spawns fleas according to current difficulty settings.
+	/// </summary>
     void Spawn() {
         spawnTimer += Time.deltaTime;
 
@@ -76,10 +96,12 @@ public class FleaSpawner : MonoBehaviour {
 
             if(random < percentageSpawn) {
                 int nb = Random.Range(1, maxFleas + 1);
+				float delay = 0.0f;
+
                 for(int i = 0; i < nb; i++) {
                     if(FleaCounter < maxFleas) {
-                        Instantiate(flea, new Vector2(Random.Range(-5F, 5F), 0), Quaternion.identity);
-                        FleaCounter++;
+						Invoke ("InstantiateFlea", delay);
+						delay += minJumpInterval;
                     }
                 }
             }
@@ -88,6 +110,9 @@ public class FleaSpawner : MonoBehaviour {
         }
     }
 
+	/// <summary>
+	/// Increases the difficulty.
+	/// </summary>
     void IncreaseDifficulty() {
         difficultyTimer += Time.deltaTime;
 
@@ -112,5 +137,16 @@ public class FleaSpawner : MonoBehaviour {
             difficultyTimer = 0f;
         }
     }
+
+	/// <summary>
+	/// Sometimes randomness in the above algorithm causes long wait times between spawn times.
+	/// This is uncool, at minimum, a flea every maxTimeSinceLastSpawn must happen.
+	/// </summary>
+	void EmergencySpawn() {
+		float timeSinceLastSpawn = Time.time - lastSpawnTime;
+		if (timeSinceLastSpawn >= maxTimeSinceLastSpawn) {
+			InstantiateFlea ();
+		}
+	}
 
 }
