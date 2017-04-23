@@ -41,6 +41,7 @@ public class CatHealth : MonoBehaviour {
     }
 
     void KillCat() {
+		Debug.Log (Time.timeSinceLevelLoad);
         SceneManager.LoadScene("GameOver");
     }
 }
