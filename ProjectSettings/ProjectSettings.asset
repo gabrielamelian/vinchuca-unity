@@ -137,10 +137,10 @@ PlayerSettings:
   useHDRDisplay: 0
   applicationIdentifier:
     Android: com.vinchuca.FleaInvaders
-    Standalone: unity.Vinchuca.GatoPulgoso
-    Tizen: com.Vinchuca.GatoPulgoso
-    iOS: com.Vinchuca.GatoPulgoso
-    tvOS: com.Vinchuca.GatoPulgoso
+    Standalone: unity.vinchuca.FleaInvaders
+    Tizen: com.vinchuca.FleaInvaders
+    iOS: com.vinchuca.FleaInvaders
+    tvOS: com.vinchuca.FleaInvaders
   buildNumber:
     iOS: 0
   AndroidBundleVersionCode: 1
