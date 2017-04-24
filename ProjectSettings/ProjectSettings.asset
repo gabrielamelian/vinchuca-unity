@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 2.0
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -136,7 +136,7 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   applicationIdentifier:
-    Android: com.Vinchuca.GatoPulgoso
+    Android: com.vinchuca.FleaInvaders
     Standalone: unity.Vinchuca.GatoPulgoso
     Tizen: com.Vinchuca.GatoPulgoso
     iOS: com.Vinchuca.GatoPulgoso
@@ -216,8 +216,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: D:/Documents/Builds/Flea Invaders/user.keystore
+  AndroidKeyaliasName: production release
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 0
@@ -659,12 +659,12 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: fggf
-  projectName: 
-  organizationId: 
+  cloudProjectId: 16a9c812-4149-4c02-9e06-2042ff7c9ab7
+  projectName: Flea Invaders
+  organizationId: droope
   cloudEnabled: 0
   enableNewInputSystem: 0
