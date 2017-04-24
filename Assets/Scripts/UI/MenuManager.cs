@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour {
     }
 
 	public void ExitApplication() {
+		Debug.Log ("Exiting Application");
 		Application.Quit ();
 	}
 
